@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Character script.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=2]
 [ext_resource path="res://Scripts/collison.gd" type="Script" id=3]
-[ext_resource path="res://Musictimer.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
