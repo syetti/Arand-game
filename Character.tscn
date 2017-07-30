@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/Character script.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=2]
-[ext_resource path="res://Scripts/collison.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=3]
+[ext_resource path="res://Scripts/collison.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -23,12 +24,13 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+bullet_ = ExtResource( 2 )
 
 [node name="Character" type="Sprite" parent="."]
 
 transform/pos = Vector2( -1.08859, 2.9066 )
 transform/scale = Vector2( 1.004, 1.00568 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 7
 frame = 6
 
@@ -37,7 +39,7 @@ frame = 6
 visibility/behind_parent = true
 visibility/blend_mode = 1
 transform/scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 7
 modulate = Color( 0.0546875, 0, 1, 1 )
 
@@ -47,7 +49,7 @@ transform/pos = Vector2( 0.0667572, -1.4877 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -55,7 +57,7 @@ process_mode = 1
 wait_time = 2.0
 one_shot = false
 autostart = false
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -66,6 +68,8 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+
+[node name="Bulletspawn" type="Position2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

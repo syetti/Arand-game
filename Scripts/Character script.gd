@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export (PackedScene) var bullet_
 var Velocity = Vector2()
 var Speed = 800
 onready var Health = get_node("../Health/Healthb1")
@@ -17,8 +18,10 @@ func _input(event):
 	var Move_Down = event.is_action_pressed("ui_down")
 	var Move_Up = event.is_action_pressed("ui_up")
 	var stop_moving_y = not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down")
-	var halt = Input.is_action_pressed("ui_select")
+	var click = event.is_action_pressed("ui_select")
 	
+	if click:
+		fire()
 	
 	if Move_Right:
 		Velocity.x = Speed
@@ -70,4 +73,6 @@ func _fixed_process(delta):
 func _on_Timer_timeout():
 	if not is_colliding():
 		health += 1
-		
+func fire():
+	bullet_.instance()
+	bullet_
