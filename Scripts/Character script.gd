@@ -73,6 +73,9 @@ func _fixed_process(delta):
 func _on_Timer_timeout():
 	if not is_colliding():
 		health += 1
+		
 func fire():
-	bullet_.instance()
-	bullet_
+	var bullet = bullet_.instance()
+	get_parent().add_child(bullet)
+	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
+	bullet.hide()
