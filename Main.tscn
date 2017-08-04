@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Screenshake.gd" type="Script" id=5]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -145,5 +146,7 @@ _update_shape_index = 4
 
 transform/pos = Vector2( 979.263, 299.838 )
 transform/scale = Vector2( 1, 9.0919 )
+
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
 
 
