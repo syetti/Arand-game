@@ -71,6 +71,8 @@ bounce = 0.0
 
 [node name="Bulletspawn" type="Position2D" parent="."]
 
+transform/pos = Vector2( 35.2101, -1.32038 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

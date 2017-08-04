@@ -38,15 +38,17 @@ func _input(event):
 		Velocity.y = -Speed
 	elif stop_moving_y:
 		Time.start()
-		
 		Velocity.y = 0
+		
+	if health <= 0:
+		stop_moving_x
+		stop_moving_y
+		click = null
 	
 func _fixed_process(delta):
 	if health <= 0:
-		get_node("/root/CRT/Viewport/Gameover").show()
-		get_node("/root/CRT/Viewport/Main").hide()
-		print("gameover")
-				 
+		get_tree().change_scene("res://CRTViewportDisplay/Death screen/CRT.scn")
+
 			
 	
 		
@@ -78,4 +80,4 @@ func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
-	bullet.hide()
+	health -= 10

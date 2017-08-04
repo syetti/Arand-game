@@ -1,5 +1,8 @@
 extends Camera2D
 
+onready var Health = get_node("../Health/Healthb1")
+var health = 100 
+
 var screenshake = 0
 
 func _ready():
@@ -17,7 +20,10 @@ func _process(delta):
 		screenshake = 0
 
 func _input(event):
-	if Input.is_action_pressed("ui_select") and screenshake == 0:
+	var click = Input.is_action_pressed("ui_select")
+
+	if click and screenshake == 0:
 		screenshake = 25.8
 		
-		
+	if health <= 0:
+		screenshake = 0
