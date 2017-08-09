@@ -12,7 +12,7 @@ func _ready():
 func _fixed_process(delta):
 	
 	if health <= 0:
-		self.queue_free()
+		queue_free()
 	
 	
 	
@@ -21,6 +21,6 @@ func _fixed_process(delta):
 		var bodies = get_collider()
 		
 		if bodies.is_in_group("Bullet"):
-			health -= 25
+			health -= 100
 		
 	

@@ -12,11 +12,16 @@ func _process(delta):
 	var motion = velocity * delta
 	move(motion)
 	
-	var bodies = get_collider()
+	
 	
 	if is_colliding():
+		
+		var bodies = get_collider()
+		
+		if bodies.is_in_group("Bullet_death"):
+			queue_free()
 		if bodies.is_in_group("Enemy"):
-			pass
-			
+			queue_free()
+		
 
 	

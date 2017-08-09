@@ -40,10 +40,6 @@ func _input(event):
 		Time.start()
 		Velocity.y = 0
 		
-	if health <= 0:
-		stop_moving_x
-		stop_moving_y
-		click = null
 	
 func _fixed_process(delta):
 	if health <= 0:
@@ -66,18 +62,19 @@ func _fixed_process(delta):
 			Velocity = normal.slide(Velocity)
 			move(motion)
 			
-		elif bodies.is_in_group("Enemy"):
+		elif bodies.is_in_group("Enemy_bullet"):
 				health -=  1
-				health
+				Health.show()
 	Health.set_value(health)
 	
 
 func _on_Timer_timeout():
 	if not is_colliding():
-		health += 1
+		Health.hide()
 		
 func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
-	health -= 10
+	health -= 20
+	Health.show()
