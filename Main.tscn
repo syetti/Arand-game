@@ -34,10 +34,10 @@ transform/pos = Vector2( 84.2449, 198.998 )
 
 visibility/behind_parent = true
 rect/scale = Vector2( 1.5, 1.5 )
-margin/left = 50.0
-margin/top = 50.0
-margin/right = 90.0
-margin/bottom = 90.0
+margin/left = 56.0
+margin/top = -32.0
+margin/right = 96.0
+margin/bottom = 8.0
 
 [node name="Control" parent="." instance=ExtResource( 4 )]
 
@@ -71,7 +71,6 @@ script/script = ExtResource( 5 )
 "Wall",
 ]]
 
-editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 510, -10 )
@@ -94,6 +93,9 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Wall1" type="CollisionShape2D" parent="wall" groups=[
 "Wall",
