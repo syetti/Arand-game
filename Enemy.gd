@@ -2,17 +2,25 @@ extends KinematicBody2D
 const SPEED = 800
 
 onready var raycast = get_node("Raycast")
+var health = 100
 
 func _ready():
 	set_fixed_process(true)
-	raycast.set_rot(get_rot()+1)
+	
 	
 
 func _fixed_process(delta):
 	
-	var bodies = get_collider()
+	if health <= 0:
+		self.queue_free()
+	
+	
 	
 	if is_colliding():
-		if bodies.is_in_group("MC"):
-			set_rot(bodies.get_pos())
+		print("hero")
+		var bodies = get_collider()
+		
+		if bodies.is_in_group("Bullet"):
+			health -= 25
+		
 	

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32.1881, 31.8543 )
+extents = Vector2( 32.9178, 34.4497 )
 
 [sub_resource type="Animation" id=2]
 
@@ -58,7 +58,7 @@ autoplay = ""
 
 [node name="Raycast" type="RayCast2D" parent="."]
 
-enabled = false
+enabled = true
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
