@@ -1,26 +1,22 @@
-extends KinematicBody2D 
-const SPEED = 800
-
-onready var raycast = get_node("Raycast")
+extends KinematicBody2D
 var health = 100
 
+onready var area = get_node("Area2D")
+
 func _ready():
-	set_fixed_process(true)
+	pass
+
+
+
+
 	
 	
 
-func _fixed_process(delta):
+func _on_Area2D_body_enter( body ):
 	
+	if body.is_in_group("Bullet"):
+		health -= 25
+		body.queue_free()
+		print("dane")
 	if health <= 0:
 		queue_free()
-	
-	
-	
-	if is_colliding():
-		print("hero")
-		var bodies = get_collider()
-		
-		if bodies.is_in_group("Bullet"):
-			health -= 100
-		
-	

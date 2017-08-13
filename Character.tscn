@@ -59,16 +59,6 @@ one_shot = false
 autostart = false
 script/script = ExtResource( 5 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
 [node name="Bulletspawn" type="Position2D" parent="."]
 
 transform/pos = Vector2( 35.2101, -1.32038 )

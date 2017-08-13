@@ -37,7 +37,6 @@ func _input(event):
 	elif Move_Up:
 		Velocity.y = -Speed
 	elif stop_moving_y:
-		Time.start()
 		Velocity.y = 0
 		
 	
@@ -46,9 +45,6 @@ func _fixed_process(delta):
 		get_tree().change_scene("res://CRTViewportDisplay/Death screen/CRT.scn")
 
 			
-	
-		
-
 	
 	var motion = Velocity * delta
 	motion = move(motion)
@@ -63,7 +59,7 @@ func _fixed_process(delta):
 			move(motion)
 			
 		elif bodies.is_in_group("Enemy_bullet"):
-				health -=  1
+				health -=  20
 				Health.show()
 	Health.set_value(health)
 	
@@ -76,5 +72,3 @@ func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
-	health -= 20
-	Health.show()
