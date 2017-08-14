@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=2]
@@ -8,10 +8,28 @@
 custom_solver_bias = 0.0
 radius = 20.7775
 
+[sub_resource type="Animation" id=2]
+
+resource/name = "Enemy Movement"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.7, 1, 1.3, 1.7, 2, 3 ),
+"transitions": FloatArray( 1, 1, 0.25, 4, 0.25, 4, 0.25 ),
+"update": 0,
+"values": [ Vector2( 260.194, 35.1737 ), Vector2( 260.194, 35.1737 ), Vector2( 865.519, 459.18 ), Vector2( 865.519, 459.18 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 35.1737 ) ]
+}
+
 [node name="Enemy" type="KinematicBody2D" groups=[
 "Enemy",
 ]]
 
+transform/pos = Vector2( 864.107, 459.154 )
 input/pickable = false
 collision/layers = 2
 collision/mask = 2
@@ -22,7 +40,7 @@ script/script = ExtResource( 1 )
 
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Collision_stufsf" type="Area2D" parent="."]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -35,7 +53,7 @@ angular_damp = 1.0
 collision/layers = 2
 collision/mask = 2
 
-[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+[node name="Collision" type="CollisionShape2D" parent="Collision_stufsf"]
 
 transform/pos = Vector2( 0, -0.204704 )
 transform/scale = Vector2( 1, 0.994241 )
@@ -43,6 +61,17 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/Enemy Movement" = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Enemy Movement"
+
+[connection signal="body_enter" from="Collision_stufsf" to="." method="_on_Area2D_body_enter"]
 
 
