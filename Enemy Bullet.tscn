@@ -1,34 +1,35 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Enemy Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/GameTexures/Bullet.tex" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 13.1267
+radius = 10.3992
 
-[node name="Bullet" type="KinematicBody2D" groups=[
-"Bullet",
+[node name="EnemyBullet" type="KinematicBody2D" groups=[
+"Enemy_bullet",
 ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.6175, -1.37926 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0390015, 0.445473 )
 shapes/0/trigger = false
-collision/layers = 2
-collision/mask = 2
+collision/layers = 1
+collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( -2.0888, -11.2845 )
+transform/pos = Vector2( -1.14862, -7.52776 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.6175, -1.37926 )
+transform/pos = Vector2( -0.0390015, 0.445473 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

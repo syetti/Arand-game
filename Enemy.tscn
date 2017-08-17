@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=2]
+[ext_resource path="res://Enemy Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -29,19 +30,20 @@ tracks/0/keys = {
 "Enemy",
 ]]
 
-transform/pos = Vector2( 864.107, 459.154 )
 input/pickable = false
 collision/layers = 2
 collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+Enemy_bullet = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Collision_stufsf" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 0.994241, 0, -0.204704 )
@@ -72,6 +74,17 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = "Enemy Movement"
 
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = false
+autostart = true
+
+[node name="Enemybulspawn" type="Position2D" parent="."]
+
 [connection signal="body_enter" from="Collision_stufsf" to="." method="_on_Area2D_body_enter"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

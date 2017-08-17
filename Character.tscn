@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 34.1681
+radius = 38.2636
 
 [node name="Character" type="KinematicBody2D" groups=[
 "MC",
@@ -28,6 +28,7 @@ bullet_ = ExtResource( 2 )
 
 [node name="Character" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -1.08859, 2.9066 )
 transform/scale = Vector2( 1.004, 1.00568 )
 texture = ExtResource( 3 )

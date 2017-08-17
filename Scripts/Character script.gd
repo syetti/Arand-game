@@ -22,13 +22,6 @@ func _input(event):
 	
 	if click:
 		fire()
-	
-	if Move_Right:
-		Velocity.x = Speed
-	elif Move_Left:
-		Velocity.x = -Speed
-	elif stop_moving_x:
-		Time.start()
 		
 		Velocity.x = 0
 		
@@ -52,15 +45,17 @@ func _fixed_process(delta):
 	if is_colliding():
 		var bodies = get_collider()
 		
-		if bodies.is_in_group("Wall"):
-			var normal = get_collision_normal()
-			motion = normal.slide(motion)
-			Velocity = normal.slide(Velocity)
-			move(motion)
+		#if bodies.is_in_group("Wall"):
+			#var normal = get_collision_normal()
+			#motion = normal.slide(motion)
+			#Velocity = normal.slide(Velocity)
+			#move(motion)
 			
-		elif bodies.is_in_group("Enemy_bullet"):
-				health -=  20
-				Health.show()
+		if bodies.is_in_group("Enemy_bullet"):
+			print("hit")
+			health -=  20
+			Health.show()
+			
 	Health.set_value(health)
 	
 
