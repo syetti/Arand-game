@@ -16,7 +16,6 @@ margin/bottom = 120.0
 
 [node name="Healthb1" type="TextureProgress" parent="."]
 
-visibility/visible = false
 rect/scale = Vector2( 5.68, 3 )
 focus/ignore_mouse = false
 focus/stop_mouse = true

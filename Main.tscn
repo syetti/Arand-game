@@ -94,29 +94,56 @@ bounce = 0.0
 "Wall",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 511.507, -10 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="Area2D" type="Area2D" parent="wall/Wall1"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
 [node name="Wall2" type="CollisionShape2D" parent="wall" groups=[
 "Wall",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 510, 610 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 1
 
+[node name="Area2D" type="Area2D" parent="wall/Wall2"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
 [node name="Wall3" type="CollisionShape2D" parent="wall" groups=[
 "Wall",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 1030, 300 )
 transform/rot = 90.0
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 2
+
+[node name="Area2D" type="Area2D" parent="wall/Wall3"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 
 [node name="Bullet_death" type="StaticBody2D" parent="." groups=[
 "Bullet_death",
@@ -128,7 +155,7 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.00580542, -0.999983, 0.999983, 0.00580542, 1093.01, 337.081 )
 shapes/0/trigger = false
 collision/layers = 2
-collision/mask = 2
+collision/mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0

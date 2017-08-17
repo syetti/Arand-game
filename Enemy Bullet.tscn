@@ -9,9 +9,10 @@ custom_solver_bias = 0.0
 radius = 10.3992
 
 [node name="EnemyBullet" type="KinematicBody2D" groups=[
-"Enemy_bullet",
+"Enemybull",
 ]]
 
+transform/pos = Vector2( -0.209351, 0 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0390015, 0.445473 )

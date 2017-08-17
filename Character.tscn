@@ -1,25 +1,21 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Scripts/Character script.gd" type="Script" id=1]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=3]
-[ext_resource path="res://Scripts/collison.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 38.2636
+radius = 37.5245
 
 [node name="Character" type="KinematicBody2D" groups=[
 "MC",
 ]]
 
-transform/pos = Vector2( 120.975, 113.655 )
+transform/pos = Vector2( 119.975, 113.655 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.0667572, -1.4877 )
-shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -44,26 +40,40 @@ texture = ExtResource( 3 )
 hframes = 7
 modulate = Color( 0.0546875, 0, 1, 1 )
 
-[node name="Colide" type="CollisionShape2D" parent="."]
-
-transform/pos = Vector2( 0.0667572, -1.4877 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-script/script = ExtResource( 4 )
-
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 1.5
 one_shot = false
 autostart = false
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 [node name="Bulletspawn" type="Position2D" parent="."]
 
 transform/pos = Vector2( 35.2101, -1.32038 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"MC",
+]]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.52588e-05, -2.14043 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
+"MC",
+]]
+
+transform/pos = Vector2( 1.52588e-05, -2.14043 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 

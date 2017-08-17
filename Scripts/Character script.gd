@@ -4,6 +4,7 @@ export (PackedScene) var bullet_
 var Velocity = Vector2()
 var Speed = 800
 onready var Health = get_node("../Health/Healthb1")
+onready var Areaa = get_node("Area2D")
 var health = 100 
 onready var Time = get_node("Timer")
 
@@ -34,14 +35,17 @@ func _input(event):
 		
 	
 func _fixed_process(delta):
+	var motion = Velocity * delta
+	motion = move(motion)
+	var area = get_collider()
+
+	
 	if health <= 0:
 		get_tree().change_scene("res://CRTViewportDisplay/Death screen/CRT.scn")
 
-			
-	
-	var motion = Velocity * delta
-	motion = move(motion)
 
+	
+	
 	if is_colliding():
 		var bodies = get_collider()
 		
@@ -51,10 +55,9 @@ func _fixed_process(delta):
 			#Velocity = normal.slide(Velocity)
 			#move(motion)
 			
-		if bodies.is_in_group("Enemy_bullet"):
+		if bodies.is_in_group("Enemybull"):
 			print("hit")
 			health -=  20
-			Health.show()
 			
 	Health.set_value(health)
 	
@@ -67,3 +70,23 @@ func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
+	
+
+
+
+	
+
+
+func _on_Area2D_body_enter( body ):
+	var area = get_overlapping_bodies()
+	
+	if area.is_in_group("Wall"):
+		var normal = get_collision_normal()
+		var motion = normal.slide(motion)
+		Velocity = normal.slide(Velocity)
+		move(motion)
+	
+	if body.is_in_group("Enemybull"):
+		print("hittttt")
+		health -=  20
+
