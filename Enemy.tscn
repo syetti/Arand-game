@@ -43,7 +43,6 @@ texture = ExtResource( 3 )
 
 [node name="Collision_stufsf" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 0.994241, 0, -0.204704 )
@@ -75,9 +74,9 @@ autoplay = "Enemy Movement"
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 1.0
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Enemybulspawn" type="Position2D" parent="."]
 

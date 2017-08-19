@@ -13,9 +13,6 @@ radius = 13.1267
 ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.6175, -1.37926 )
-shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 2
 collision/margin = 0.08
@@ -26,11 +23,24 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( -2.0888, -11.2845 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.6175, -1.37926 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/pos = Vector2( -0.6175, -1.37926 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 

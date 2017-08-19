@@ -37,7 +37,6 @@ func _input(event):
 func _fixed_process(delta):
 	var motion = Velocity * delta
 	motion = move(motion)
-	var area = get_collider()
 
 	
 	if health <= 0:
@@ -78,13 +77,8 @@ func fire():
 
 
 func _on_Area2D_body_enter( body ):
-	var area = get_overlapping_bodies()
-	
-	if area.is_in_group("Wall"):
-		var normal = get_collision_normal()
-		var motion = normal.slide(motion)
-		Velocity = normal.slide(Velocity)
-		move(motion)
+	if body.is_in_group("Wall"):
+		Velocity.y = 0
 	
 	if body.is_in_group("Enemybull"):
 		print("hittttt")
