@@ -13,8 +13,8 @@ func _ready():
 	set_fixed_process(true)
 	
 func _input(event):
-	var Move_Right = event.is_action_pressed("ui_right")
-	var Move_Left = event.is_action_pressed("ui_left")
+	#var Move_Right = event.is_action_pressed("ui_right")
+	#var Move_Left = event.is_action_pressed("ui_left")
 	var stop_moving_x = not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left")
 	var Move_Down = event.is_action_pressed("ui_down")
 	var Move_Up = event.is_action_pressed("ui_up")
@@ -47,16 +47,8 @@ func _fixed_process(delta):
 	
 	if is_colliding():
 		var bodies = get_collider()
-		
-		#if bodies.is_in_group("Wall"):
-			#var normal = get_collision_normal()
-			#motion = normal.slide(motion)
-			#Velocity = normal.slide(Velocity)
-			#move(motion)
-			
 		if bodies.is_in_group("Enemybull"):
-			print("hit")
-			health -=  20
+			health -=  25
 			
 	Health.set_value(health)
 	
@@ -76,5 +68,7 @@ func _on_Area2D_area_enter( area ):
 		Velocity.y = 0
 		
 	if area.is_in_group("Enemybull"):
-		print("hittttt")
+		Time.start()
+		Health.show()
+		area.queue_free()
 		health -=  20
