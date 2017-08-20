@@ -5,15 +5,15 @@
 [ext_resource path="res://Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Screenshake.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 510, 10 )
-
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 300, 10 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 510, 10 )
 
 [sub_resource type="GDScript" id=3]
 
@@ -74,15 +74,9 @@ script/script = ExtResource( 4 )
 ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 511.507, -10 )
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 1030, 300 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 1 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 510, 610 )
-shapes/1/trigger = false
-shapes/2/shape = SubResource( 2 )
-shapes/2/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 1030, 300 )
-shapes/2/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -90,41 +84,51 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Wall1" type="CollisionShape2D" parent="wall" groups=[
+[node name="Wall1" type="Area2D" parent="wall" groups=[
 "Wall",
 ]]
 
 editor/display_folded = true
 transform/pos = Vector2( 511.507, -10 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Area2D" type="Area2D" parent="wall/Wall1"]
-
 input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="Wall2" type="CollisionShape2D" parent="wall" groups=[
+[node name="Wall1" type="CollisionShape2D" parent="wall/Wall1" groups=[
+"Wall",
+]]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Wall2 2" type="Area2D" parent="wall" groups=[
 "Wall",
 ]]
 
 editor/display_folded = true
 transform/pos = Vector2( 510, 610 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 1
-
-[node name="Area2D" type="Area2D" parent="wall/Wall2"]
-
 input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+
+[node name="Wall2" type="CollisionShape2D" parent="wall/Wall2 2" groups=[
+"Wall",
+]]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Wall3" type="CollisionShape2D" parent="wall" groups=[
 "Wall",
@@ -135,9 +139,9 @@ transform/pos = Vector2( 1030, 300 )
 transform/rot = 90.0
 shape = SubResource( 2 )
 trigger = false
-_update_shape_index = 2
+_update_shape_index = 0
 
-[node name="Area2D" type="Area2D" parent="wall/Wall3"]
+[node name="Wall3 2" type="Area2D" parent="wall/Wall3"]
 
 input/pickable = true
 gravity_vec = Vector2( 0, 1 )

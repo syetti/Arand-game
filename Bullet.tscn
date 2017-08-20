@@ -23,7 +23,9 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( -2.0888, -11.2845 )
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Bullet",
+]]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -41,6 +43,6 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
+[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 

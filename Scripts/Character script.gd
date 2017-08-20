@@ -69,18 +69,12 @@ func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
-	
 
 
-
-	
-
-
-func _on_Area2D_body_enter( body ):
-	if body.is_in_group("Wall"):
+func _on_Area2D_area_enter( area ):
+	if area.is_in_group("Wall"):
 		Velocity.y = 0
-	
-	if body.is_in_group("Enemybull"):
+		
+	if area.is_in_group("Enemybull"):
 		print("hittttt")
 		health -=  20
-

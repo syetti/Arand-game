@@ -10,11 +10,8 @@ func _process(delta):
 	var motion = velocity * delta
 	move(motion)
 	
-	if is_colliding():
-		
-		var bodies = get_collider()
-		
-		if bodies.is_in_group("EBullet_death"):
+	
+func _on_Area2D_body_enter( body ):
+	if body.is_in_group("EBullet_death"):
 			queue_free()
-		if bodies.is_in_group("MC"):
-			queue_free()
+
