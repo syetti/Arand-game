@@ -4,7 +4,6 @@ export (PackedScene) var bullet_
 var Velocity = Vector2()
 var Speed = 800
 onready var Health = get_node("../Health/Healthb1")
-onready var Areaa = get_node("Area2D")
 var health = 100 
 onready var Time = get_node("Timer")
 
@@ -41,16 +40,9 @@ func _fixed_process(delta):
 	
 	if health <= 0:
 		get_tree().change_scene("res://CRTViewportDisplay/Death screen/CRT.scn")
-
-
 	
-	
-	if is_colliding():
-		var bodies = get_collider()
-		if bodies.is_in_group("Enemybull"):
-			health -=  25
-			
 	Health.set_value(health)
+	
 	
 
 func _on_Timer_timeout():
@@ -70,5 +62,4 @@ func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Enemybull"):
 		Time.start()
 		Health.show()
-		area.queue_free()
-		health -=  20
+		#health -=  20
