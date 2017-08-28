@@ -31,6 +31,7 @@ texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

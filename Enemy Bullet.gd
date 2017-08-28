@@ -14,4 +14,11 @@ func _process(delta):
 func _on_Area2D_body_enter( body ):
 	if body.is_in_group("EBullet_death"):
 			queue_free()
+	
 
+
+
+
+func _on_Area2D_area_enter( area ):
+		if area.is_in_group("MC"):
+			queue_free()

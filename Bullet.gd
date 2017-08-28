@@ -28,4 +28,6 @@ func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Bullet_death"):
 		queue_free()
 	if area.is_in_group("Enemy"):
+		var anim = get_node("AnimationPlayer")
+		anim.play("Bullexplode")
 		queue_free()

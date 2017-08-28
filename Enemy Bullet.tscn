@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Enemy Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/GameTexures/Bullet.tex" type="Texture" id=2]
+[ext_resource path="res://Sprites/GameTexures/EBullet.tex" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.3992
+points = Vector2Array( 0.309224, 4.30712, -3.16061, 4.43563, -9.45771, 3.66455, -13.8271, 2.12241, -16.2689, 0.708771, -14.4697, -2.24701, -7.14449, -4.43172, 0.309224, -4.56024, 8.4055, -3.40362, 4.01096, 3.88408 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 10.7187, 0.965796, 9.69062, 2.25092, 6.09228, 3.79307, 4.01096, 3.88408, 8.4055, -3.40362, 10.8472, -1.98999, 11.4898, -0.961889 )
 
 [node name="EnemyBullet" type="KinematicBody2D" groups=[
 "Enemybull",
@@ -21,9 +26,9 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( -1.14862, -7.52776 )
-transform/scale = Vector2( 0.8, 0.8 )
+transform/pos = Vector2( 16.4077, 13.93 )
 texture = ExtResource( 2 )
+hframes = 5
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "Enemybull",
@@ -31,19 +36,24 @@ texture = ExtResource( 2 )
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0390015, 0.445473 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
-transform/pos = Vector2( -0.0390015, 0.445473 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = Vector2Array( 8.4055, -3.40362, 0.309224, -4.56024, -7.14449, -4.43172, -14.4697, -2.24701, -16.2689, 0.708771, -13.8271, 2.12241, -9.45771, 3.66455, -3.16061, 4.43563, 0.309224, 4.30712, 4.01096, 3.88408, 6.09228, 3.79307, 9.69062, 2.25092, 10.7187, 0.965796, 11.4898, -0.961889, 10.8472, -1.98999 )
+shape_range = Vector2( 0, 1 )
 trigger = false
-_update_shape_index = 0
+
+[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
