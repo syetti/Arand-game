@@ -6,15 +6,17 @@ var Speed = 800
 onready var Health = get_node("../Health/Healthb1")
 var health = 100 
 onready var Time = get_node("Timer")
-
+var Cant_move = Velocity.y == 0
+var Can_move = Velocity.y == Speed
 func _ready():
+	Cant_move
 	set_process_input(true)
 	set_fixed_process(true)
 	
 func _input(event):
 	#var Move_Right = event.is_action_pressed("ui_right")
 	#var Move_Left = event.is_action_pressed("ui_left")
-	var stop_moving_x = not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left")
+	#var stop_moving_x = not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left")
 	var Move_Down = event.is_action_pressed("ui_down")
 	var Move_Up = event.is_action_pressed("ui_up")
 	var stop_moving_y = not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down")
@@ -57,8 +59,12 @@ func fire():
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Wall"):
+		Cant_move
 		Velocity.y = 0
 	if area.is_in_group("Enemybull"):
 		Time.start()
 		Health.show()
 		#health -=  20
+
+func _on_Area2D_area_exit( area ):
+	Can_move
