@@ -1,0 +1,16 @@
+[gd_scene format=1]
+
+[node name="PopupMenu" type="PopupMenu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 216.0
+margin/bottom = 99.0
+popup/exclusive = false
+items = [ "Sound", null, false, false, false, -1, 0, null, "", false, "Item 1", null, false, false, false, -1, 0, null, "", false ]
+
+

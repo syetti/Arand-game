@@ -4,7 +4,6 @@
 [ext_resource path="res://Enemy Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -24,13 +23,14 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.7, 1, 1.3, 1.7, 2, 3 ),
 "transitions": FloatArray( 1, 1, 0.25, 4, 0.25, 4, 0.25 ),
 "update": 0,
-"values": [ Vector2( 260.194, 35.1737 ), Vector2( 260.194, 35.1737 ), Vector2( 865.519, 459.18 ), Vector2( 865.519, 459.18 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 35.1737 ) ]
+"values": [ Vector2( 252.657, 90.945 ), Vector2( 252.657, 90.945 ), Vector2( 865.519, 459.18 ), Vector2( 865.519, 459.18 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 448.022 ), Vector2( 260.195, 35.1737 ) ]
 }
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "Enemy",
 ]]
 
+transform/pos = Vector2( 260.194, 35.1737 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1

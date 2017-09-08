@@ -5,12 +5,12 @@
 [ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=3]
 [ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 39.6091
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 37.9163
@@ -21,7 +21,7 @@ radius = 37.9163
 
 transform/pos = Vector2( 119.975, 113.655 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.16228, -2.32454 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -68,7 +68,7 @@ transform/pos = Vector2( 35.2101, -1.32038 )
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.387436, -2.13082 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -79,21 +79,19 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 
 transform/pos = Vector2( 0.387436, -2.13082 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 1.16228, -2.32454 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="area_enter" from="Node2D/Area2D" to="." method="_on_Area2D_area_enter"]
-
-[connection signal="area_exit" from="Node2D/Area2D" to="." method="_on_Area2D_area_exit"]
 
 

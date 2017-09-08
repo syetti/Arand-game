@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Sprites/Lit.fnt" type="BitmapFont" id=1]
 
-
 [node name="CanvasLayer" type="CanvasLayer"]
 
 layer = 1
@@ -25,5 +24,6 @@ bbcode/enabled = true
 bbcode/bbcode = "Game Over
  "
 visible_characters = -1
+percent_visible = 1.0
 
 

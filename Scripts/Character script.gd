@@ -57,13 +57,8 @@ func fire():
 
 
 func _on_Area2D_area_enter( area ):
-	if area.is_in_group("Wall"):
-		Velocity.y = 0
-	if area.is_in_group("Enemybull"):
+	if area.is_in_group("Enemybull1"):
 		Time.start()
 		Health.show()
-		#health -=  20
+		health -=  20
 
-func _on_Area2D_area_exit( area ):
-	if area.is_in_group("Wall"):
-		Velocity = true 
