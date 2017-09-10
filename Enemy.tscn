@@ -83,8 +83,6 @@ autostart = true
 
 [node name="Enemybulspawn" type="Position2D" parent="."]
 
-[connection signal="area_enter" from="Collision_stufsf" to="." method="_on_Collision_stufsf_area_enter"]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

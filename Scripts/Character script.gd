@@ -34,6 +34,13 @@ func _input(event):
 		
 	
 func _fixed_process(delta):
+
+	if is_colliding():
+		var collider = get_collider()
+
+		if collider.is_in_group("Enemybull1"):
+			Health.show()
+			health -= 20
 	
 	var motion = Velocity * delta
 	motion = move(motion)
@@ -55,10 +62,4 @@ func fire():
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
 
-
-func _on_Area2D_area_enter( area ):
-	if area.is_in_group("Enemybull1"):
-		Time.start()
-		Health.show()
-		health -=  20
 

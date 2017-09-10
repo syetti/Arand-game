@@ -19,6 +19,12 @@ points = Vector2Array( 10.7187, 0.965796, 9.69062, 2.25092, 6.09228, 3.79307, 4.
 
 transform/pos = Vector2( -0.209351, 0 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 4.17233e-07, 0.033865 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 4.17233e-07, 0.033865 )
+shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -30,32 +36,12 @@ transform/pos = Vector2( 16.4077, 13.93 )
 texture = ExtResource( 2 )
 hframes = 5
 
-[node name="Area2D" type="Area2D" parent="." groups=[
-"Enemybull1",
-]]
-
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 4.17233e-07, 0.033865 )
-shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 4.17233e-07, 0.033865 )
-shapes/1/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 transform/pos = Vector2( 4.17233e-07, 0.033865 )
 build_mode = 0
 polygon = Vector2Array( 8.4055, -3.40362, 0.309224, -4.56024, -7.14449, -4.43172, -14.4697, -2.24701, -16.2689, 0.708771, -13.8271, 2.12241, -9.45771, 3.66455, -3.16061, 4.43563, 0.309224, 4.30712, 4.01096, 3.88408, 6.09228, 3.79307, 9.69062, 2.25092, 10.7187, 0.965796, 11.4898, -0.961889, 10.8472, -1.98999 )
 shape_range = Vector2( 0, 1 )
 trigger = false
-
-[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
-
-[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 
