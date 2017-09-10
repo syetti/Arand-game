@@ -34,11 +34,11 @@ func _input(event):
 		
 	
 func _fixed_process(delta):
-
 	if is_colliding():
 		var collider = get_collider()
 
 		if collider.is_in_group("Enemybull1"):
+			collider.queue_free()
 			Health.show()
 			health -= 20
 	
