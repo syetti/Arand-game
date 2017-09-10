@@ -63,3 +63,17 @@ func fire():
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
 
 
+<<<<<<< HEAD
+=======
+func _on_Area2D_area_enter( area ):
+	if area.is_in_group("Wall"):
+		Velocity.y = 0
+	if area.is_in_group("Enemybull"):
+		Time.start()
+		Health.show()
+		#health -=  20
+
+func _on_Area2D_area_exit( area ):
+	if area.is_in_group("Wall"):
+		Velocity = true 
+>>>>>>> parent of 71ef304... Boss1 incoming
