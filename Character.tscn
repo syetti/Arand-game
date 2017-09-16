@@ -11,7 +11,10 @@ custom_solver_bias = 0.0
 radius = 39.6091
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 71ef304... Boss1 incoming
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -104,5 +107,8 @@ _update_shape_index = 0
 
 [connection signal="area_exit" from="Node2D/Area2D" to="." method="_on_Area2D_area_exit"]
 
+<<<<<<< HEAD
+>>>>>>> parent of 71ef304... Boss1 incoming
+=======
 >>>>>>> parent of 71ef304... Boss1 incoming
 

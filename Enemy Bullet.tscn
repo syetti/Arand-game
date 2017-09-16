@@ -15,8 +15,13 @@ custom_solver_bias = 0.0
 points = Vector2Array( 10.7187, 0.965796, 9.69062, 2.25092, 6.09228, 3.79307, 4.01096, 3.88408, 8.4055, -3.40362, 10.8472, -1.98999, 11.4898, -0.961889 )
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="EnemyBullet" type="RigidBody2D" groups=[
 "Enemybull1",
+=======
+[node name="EnemyBullet" type="KinematicBody2D" groups=[
+"Enemybull",
+>>>>>>> parent of 71ef304... Boss1 incoming
 =======
 [node name="EnemyBullet" type="KinematicBody2D" groups=[
 "Enemybull",
