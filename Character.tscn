@@ -5,6 +5,7 @@
 [ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=3]
 [ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
 
+<<<<<<< HEAD
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
@@ -15,6 +16,8 @@ radius = 39.6091
 =======
 =======
 >>>>>>> parent of 71ef304... Boss1 incoming
+=======
+>>>>>>> parent of 6297db5... Now YOU DONT GO THROUGH THE WALL WOOOOOOOOO
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -27,14 +30,32 @@ radius = 37.9163
 
 transform/pos = Vector2( 119.975, 113.655 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.16228, -2.32454 )
-shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 bullet_ = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"MC",
+]]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.387436, -2.13082 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( 0.387436, -2.13082 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Character" type="Sprite" parent="."]
 
@@ -66,6 +87,7 @@ script/script = ExtResource( 4 )
 
 transform/pos = Vector2( 35.2101, -1.32038 )
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 [node name="Node2D" type="Node2D" parent="."]
@@ -111,4 +133,12 @@ _update_shape_index = 0
 >>>>>>> parent of 71ef304... Boss1 incoming
 =======
 >>>>>>> parent of 71ef304... Boss1 incoming
+=======
+[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
+
+[connection signal="area_exit" from="Area2D" to="." method="_on_Area2D_area_exit"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+>>>>>>> parent of 6297db5... Now YOU DONT GO THROUGH THE WALL WOOOOOOOOO
 
