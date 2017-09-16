@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Enemy Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=3]
-
+[ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -36,11 +34,11 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-Enemy_bullet = ExtResource( 2 )
+Enemy_bullet = null
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Collision_stufsf" type="Area2D" parent="." groups=[
 "Enemy",

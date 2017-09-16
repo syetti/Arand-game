@@ -75,9 +75,5 @@ func _on_Area2D_area_enter( area ):
 
 func _on_Area2D_area_exit( area ):
 	if area.is_in_group("Wall"):
-<<<<<<< HEAD
+		
 		Velocity = true 
->>>>>>> parent of 71ef304... Boss1 incoming
-=======
-		Velocity = true 
->>>>>>> parent of 71ef304... Boss1 incoming
