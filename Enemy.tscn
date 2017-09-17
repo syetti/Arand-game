@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-<<<<<<< HEAD
 [ext_resource path="res://Enemy Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=3]
-=======
-[ext_resource path="res://Sprites/Enemy.tex" type="Texture" id=2]
->>>>>>> 942551eec881446c5e762d41d276175be8467270
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -42,11 +38,11 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-Enemy_bullet = null
+Enemy_bullet = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -68,7 +64,6 @@ autostart = true
 
 [node name="Enemybulspawn" type="Position2D" parent="."]
 
-<<<<<<< HEAD
 [node name="Collision" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 0, -0.204704 )
@@ -77,8 +72,6 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-=======
->>>>>>> 942551eec881446c5e762d41d276175be8467270
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
