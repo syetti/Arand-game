@@ -6,8 +6,10 @@ var Speed = 800
 onready var Health = get_node("../Health/Healthb1")
 var health = 100 
 onready var Time = get_node("Timer")
-
+var Cant_move = Velocity.y == 0
+var Can_move = Velocity.y == Speed
 func _ready():
+	Cant_move
 	set_process_input(true)
 	set_fixed_process(true)
 	
@@ -34,7 +36,17 @@ func _input(event):
 		
 	
 func _fixed_process(delta):
+<<<<<<< HEAD
+	if is_colliding():
+		var collider = get_collider()
+
+		if collider.is_in_group("Enemybull1"):
+			collider.queue_free()
+			Health.show()
+			health -= 20
 	
+=======
+>>>>>>> parent of 6297db5... Now YOU DONT GO THROUGH THE WALL WOOOOOOOOO
 	var motion = Velocity * delta
 	motion = move(motion)
 
@@ -56,8 +68,11 @@ func fire():
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
 
 
+<<<<<<< HEAD
+=======
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Wall"):
+		Cant_move
 		Velocity.y = 0
 	if area.is_in_group("Enemybull"):
 		Time.start()
@@ -65,5 +80,10 @@ func _on_Area2D_area_enter( area ):
 		#health -=  20
 
 func _on_Area2D_area_exit( area ):
+<<<<<<< HEAD
 	if area.is_in_group("Wall"):
+		
 		Velocity = true 
+=======
+	Can_move
+>>>>>>> parent of 6297db5... Now YOU DONT GO THROUGH THE WALL WOOOOOOOOO
