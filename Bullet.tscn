@@ -3,11 +3,6 @@
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/GameTexures/Bullet.tex" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 13.1267
-
 [sub_resource type="Animation" id=2]
 
 resource/name = "Bullexplode"
@@ -25,14 +20,17 @@ tracks/0/keys = {
 "values": [ 0, 5 ]
 }
 
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 13.1267
+
 [node name="Bullet" type="RigidBody2D" groups=[
 "Bullet",
 ]]
 
+transform/pos = Vector2( 0.387421, 0.19371 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.353981, -1.11574 )
-shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 2
 mode = 0
@@ -42,7 +40,7 @@ bounce = 0.0
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
+contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
@@ -69,11 +67,26 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Bullet",
+]]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.353981, -1.11574 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/pos = Vector2( -0.353981, -1.11574 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 
