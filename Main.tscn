@@ -104,10 +104,8 @@ script/script = ExtResource( 5 )
 ]]
 
 editor/display_folded = true
+transform/pos = Vector2( -33.426, -21.636 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.00580542, -0.999983, 0.999983, 0.00580542, 1093.01, 337.081 )
-shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
@@ -115,12 +113,25 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Wall6" type="CollisionShape2D" parent="Bullet_death" groups=[
+[node name="Area2D" type="Area2D" parent="Bullet_death" groups=[
 "Bullet_death",
 ]]
 
-transform/pos = Vector2( 1093.01, 337.081 )
+transform/pos = Vector2( 1095.12, 314.69 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.00580494, -0.999983, 0.999983, 0.00580494, -2.11279, 22.3906 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Wall6" type="CollisionShape2D" parent="Bullet_death/Area2D"]
+
+transform/pos = Vector2( -2.11279, 22.3906 )
 transform/rot = 89.6674
+transform/scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -190,6 +201,7 @@ bounce = 0.0
 "Wall",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 511.507, 49.9181 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )

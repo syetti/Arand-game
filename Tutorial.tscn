@@ -5,7 +5,6 @@
 [ext_resource path="res://Scripts/collison.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -17,6 +16,7 @@ radius = 34.1681
 "MC",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 120.975, 113.655 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -26,6 +26,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+bullet_ = null
 
 [node name="Character" type="Sprite" parent="Character"]
 
@@ -69,6 +70,8 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
 
 [connection signal="timeout" from="Character/Timer" to="Character" method="_on_Timer_timeout"]
 
