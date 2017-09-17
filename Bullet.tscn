@@ -3,6 +3,14 @@
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/GameTexures/Bullet.tex" type="Texture" id=2]
 
+<<<<<<< HEAD
+=======
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 13.1267
+
+>>>>>>> 942551eec881446c5e762d41d276175be8467270
 [sub_resource type="Animation" id=2]
 
 resource/name = "Bullexplode"
