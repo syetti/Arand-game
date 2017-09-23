@@ -62,7 +62,7 @@ func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Enemybull"):
 		Time.start()
 		Health.show()
-		#health -=  20
+		health -=  20
 
 func _on_Area2D_area_exit( area ):
 	if area.is_in_group("Wall"):
