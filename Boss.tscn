@@ -1,17 +1,84 @@
-[gd_scene format=1]
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Boss-1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/New Piskel (5).tex" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.9067, 20.1113 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
+transform/pos = Vector2( 157.035, 70.3952 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+script/script = ExtResource( 1 )
+Boss_bull = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+shape = SubResource( 1 )
 trigger = false
-_update_shape_index = -1
+_update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Shotgunbulletrays" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 76.3943
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2D3" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 40.4375
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2D2" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 137.835
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2D1" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 113.102
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2D4" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 56.424
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2D5" type="RayCast2D" parent="Shotgunbulletrays"]
+
+transform/rot = 95.7697
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
 
 

@@ -62,6 +62,8 @@ transform/pos = Vector2( 35.2101, -1.32038 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Area2D" type="Area2D" parent="Node2D" groups=[
 "MC",
 ]]
@@ -90,10 +92,19 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="shootingdelay" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="area_enter" from="Node2D/Area2D" to="." method="_on_Area2D_area_enter"]
 
 [connection signal="area_exit" from="Node2D/Area2D" to="." method="_on_Area2D_area_exit"]
+
+[connection signal="timeout" from="shootingdelay" to="." method="_on_Timer_2_timeout"]
 
 

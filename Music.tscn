@@ -4,8 +4,6 @@
 [ext_resource path="res://Music/Start_screen.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Music/Possible.wav" type="Sample" id=3]
 
-
-
 [sub_resource type="SampleLibrary" id=1]
 
 samples/Possible = {
