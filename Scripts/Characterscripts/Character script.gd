@@ -52,7 +52,7 @@ func _fixed_process(delta):
 	
 func Death():
 	emit_signal("death")
-	self.connect("death", GLOBAL, "DTransition")
+	
 	
 func _on_Timer_timeout():
 	if not is_colliding():

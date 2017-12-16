@@ -11,14 +11,16 @@ func _ready():
 
 	
 func screenshakee():
+	var idle_shake = 0
 	screenshake = 10.8
-	var randomnessinshake = Vector2(rand_range(-0.7, 0.7)*screenshake, rand_range(-0.7, 0.7)*screenshake)
+	var randomnessinshake = Vector2(rand_range(-3, 0.7)*screenshake, rand_range(0.7, -0.7)*screenshake)
 	set_offset(randomnessinshake)
 	
 	if screenshake > 0:
-		screenshake -= 0.1
+		screenshake -= 4
 	if screenshake < 0:
 		screenshake = 0
+		set_offset(screenshake)
 
 func _input(event):
 	var click = Input.is_action_pressed("ui_select") and can_click == true

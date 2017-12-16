@@ -36,7 +36,7 @@ func spawn_E2():
 	if espawn == true:
 		var Enemyy = Enemy2.instance()
 		get_parent().add_child(Enemyy)
-		Enemyy.set_global_pos(spawn_place)
+		Enemyy.set_global_pos(spawn_place2)
 
 	
 

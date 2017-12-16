@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Health.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Enemydeathcounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/GameTexures/Pause.tex" type="Texture" id=7]
 [ext_resource path="res://Pausing.gd" type="Script" id=8]
+[ext_resource path="res://Boss.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -56,6 +57,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -44.7763, 298.359 ), Vector2( 108.972, 299.867 ) ]
 }
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 33.3489
 
 [node name="Main" type="Node2D"]
 
@@ -152,7 +158,7 @@ transform/pos = Vector2( 258.009, 81.818 )
 
 [node name="Spaw_enemy2" type="Position2D" parent="."]
 
-transform/pos = Vector2( 258.009, 81.818 )
+transform/pos = Vector2( 913.128, 96.6229 )
 
 [node name="Enemy_timer" type="Timer" parent="."]
 
@@ -328,6 +334,22 @@ modulate = Color( 0.308594, 0.308594, 0.308594, 1 )
 process/pause_mode = 2
 script/script = ExtResource( 8 )
 
+[node name="KinematicBody2D" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 588.71, 304.53 )
+transform/scale = Vector2( 2, 2 )
+
+[node name="Sprite" parent="KinematicBody2D"]
+
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -1.47018, -6.98338 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
 [connection signal="timeout" from="Screen/Timer" to="Screen" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="Enemy_timer" to="." method="_on_Enemy_timer_timeout"]
@@ -335,3 +357,4 @@ script/script = ExtResource( 8 )
 [connection signal="timeout" from="Enemy2_timer" to="." method="_on_Enemy2_timer_timeout"]
 
 
+[editable path="KinematicBody2D"]
