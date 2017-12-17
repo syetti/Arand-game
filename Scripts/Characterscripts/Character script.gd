@@ -8,7 +8,7 @@ onready var Health = get_node("../Health/Healthb1")
 var health = 100 
 onready var Time = get_node("shootingdelay")
 signal score_changed_0
-signal death
+
 
 func _ready():
 	set_process_input(true)
@@ -44,14 +44,13 @@ func _fixed_process(delta):
 
 	
 	if health <= 0:
-		Death()
+		GLOBAL.DTransition()
 		Scorechanger.score = 0
 	
 	Health.set_value(health)
 	
 	
-func Death():
-	emit_signal("death")
+	
 	
 	
 func _on_Timer_timeout():
@@ -70,6 +69,7 @@ func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Wall"):
 		Velocity.y = 0
 	if area.is_in_group("Enemybull"):
+		GLOBAL.Hit_punch()
 		Time.start()
 		Health.show()
 		health -=  20

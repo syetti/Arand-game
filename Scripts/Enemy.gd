@@ -5,13 +5,10 @@ export (PackedScene) var Enemy_bullet
 signal screen_shake
 
 onready var anim = get_node("Anim1")
-onready var anim2 = get_node("Anim2")
 var health = 100
 
 
 func _ready():
-	var Screenshake = get_node("/root/CRT/Viewport/Main/Screen")
-	self.connect("screen_shake", Screenshake, "screenshakee")
 	set_fixed_process(true)
 	
 
@@ -35,6 +32,8 @@ func _on_Timer_timeout():
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Bullet"):
+		GLOBAL.Hit_punche()
+		GLOBAL.Screenshake()
 		area.get_parent().get_node("AnimationPlayer").play("Bullexplode")
 		anim.play("Red_Flash")
 		health -= 25

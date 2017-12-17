@@ -9,3 +9,4 @@ func _ready():
 	
 	
 func _fixed_process(delta):
+	null
