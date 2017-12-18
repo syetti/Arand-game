@@ -4,7 +4,6 @@ export (PackedScene) var Enemy_bullet
 
 onready var Red = get_node("Red Flash")
 onready var anim = get_node("Anim1")
-onready var anim2 = get_node("Anim2")
 
 var health = 100
 
@@ -33,6 +32,8 @@ func _on_Timer_timeout():
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Bullet"):
+		GLOBAL.Hit_punche()
+		GLOBAL.Screenshake()
 		area.get_parent().get_node("AnimationPlayer").play("Bullexplode")
 		anim.play("Red_Flash")
 		health -= 25

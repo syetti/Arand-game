@@ -34,17 +34,37 @@ func DTransition():
 	get_tree().change_scene("res://Death_screen/CRT.scn")
 	
 ####################################################################
+var shaking = false
 var screenshake = 0
-func _process(delta):
-	var camera = get_node("/root/CRT/Viewport/Main/Camera2D")
-	screenshake = 10.8
-	var randomnessinshake = Vector2(rand_range(-0.6, 0.6)*screenshake, rand_range(-0.7, 0.7)*screenshake)
-	camera.set_offset(randomnessinshake)
-	if screenshake > 0:
-		screenshake -= 1.2
-	if screenshake <= 0:
-		screenshake = 0
-		
-		
-	
+const full_time = 0.3
+var time = 0
+var normal_offset = Vector2(0,0)
+onready var camera = get_node("/root/CRT/Viewport/Main/Camera2D")
+
+func Screenshake():
+	if shaking: return
+		shaking = true
+
+	while time < full_time:
+		time += get_fixed_process_delta_time()
+		time = min(time, full_time)
+		screenshake = 5.8
+		var randomnessinshake = Vector2(rand_range(-0.6, 0.6)*screenshake, rand_range(-0.7, 0.7)*screenshake)
+		camera.set_offset(normal_offset + randomnessinshake)
+		yield(get_tree(), "idle_frame")
+	camera.set_offset(normal_offset)
+	screenshake = 0
+	time = 0
+	shaking = false
+
 ################################################################
+
+var stage = 1
+func Level_up():
+	var Level = "Level "
+	stage += 1
+	var text = get_node("/root/CRT/Viewport/Popup/RichTextLabel")
+	text.set_bbcode(str(Level , stage))
+	
+	
+	

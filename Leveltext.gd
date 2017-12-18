@@ -3,6 +3,7 @@ extends PopupPanel
 signal enemy_spawn
 
 func _ready():
+	GLOBAL.Level_up()
 	get_node("Timer").start()
 	popup()
 

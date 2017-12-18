@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Level2text.gd" type="Script" id=1]
+[ext_resource path="res://Leveltext.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Lit.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
+
 
 [node name="Popup" type="PopupPanel"]
 

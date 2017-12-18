@@ -1,7 +1,7 @@
 extends Node2D
 var Enemy = preload("res://Enemy.tscn")
 var Enemy2 = preload("res://Enemy-2.tscn")
-var Level2pop = preload("res://Level2text.tscn")
+var Levelpopup = preload("res://Leveltext.tscn")
 onready var spawn_ = get_node("Spaw_enemy")
 onready var spawn_2 = get_node("Spaw_enemy2")
 onready var spawn_place = spawn_.get_global_pos()
@@ -11,7 +11,7 @@ signal Enemyenter
 
 
 func _ready():
-	Level2text.connect("enemy_spawn", self, "spawn_enemy")
+	Levelpopup.connect("enemy_spawn", self, "spawn_enemy")
 	null
 
 	
@@ -21,8 +21,8 @@ func spawn_enemy():
 	espawn = true
 		
 
-func Level2():
-	var level_popup = Level2pop.instance()
+func level_up():
+	var level_popup = Levelpopup.instance()
 	get_parent().add_child(level_popup)
 	
 
@@ -33,7 +33,6 @@ func spawn_E1():
 	emit_signal("Enemyenter")
 	
 func spawn_E2():
-	if espawn == true:
 		var Enemyy = Enemy2.instance()
 		get_parent().add_child(Enemyy)
 		Enemyy.set_global_pos(spawn_place2)
