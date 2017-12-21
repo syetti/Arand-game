@@ -17,5 +17,9 @@ func _set_score(new_value):
 		get_tree().get_root().get_node("CRT/AnimationPlayer").play("CRT")
 		get_tree().get_root().get_node("CRT/Viewport/Main/Enemy2_timer").start()
 		get_tree().get_root().get_node("CRT/Viewport/Main/Enemy_timer").set_active(false)
-	pass
+		GLOBAL.stage += 1
+	if new_value == 4:
+		get_tree().get_root().get_node("CRT/Viewport/Main").level_up()
+		get_tree().get_root().get_node("CRT/AnimationPlayer").play("CRT")
+		GLOBAL.stage += 1
 	

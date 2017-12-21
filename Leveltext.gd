@@ -1,9 +1,10 @@
 extends PopupPanel
 
 signal enemy_spawn
+var level
 
 func _ready():
-	GLOBAL.Level_up()
+	GLOBAL.Level_up(level)
 	get_node("Timer").start()
 	popup()
 

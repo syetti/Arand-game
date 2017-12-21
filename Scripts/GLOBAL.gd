@@ -1,5 +1,11 @@
 extends Node
 
+var stage = 1
+
+func _ready():
+	null
+
+
 ##################################################################
 func Hit_punche():
 	var Time = Timer.new()
@@ -34,14 +40,17 @@ func DTransition():
 	get_tree().change_scene("res://Death_screen/CRT.scn")
 	
 ####################################################################
-var shaking = false
-var screenshake = 0
 const full_time = 0.3
-var time = 0
-var normal_offset = Vector2(0,0)
-onready var camera = get_node("/root/CRT/Viewport/Main/Camera2D")
+
+
 
 func Screenshake():
+	var shaking = false
+	var screenshake = 0
+	var time = 0
+	var normal_offset = Vector2(0,0)
+
+	var camera = get_node("/root/CRT/Viewport/Main/Camera2D")
 	if shaking: return
 		shaking = true
 
@@ -58,13 +67,9 @@ func Screenshake():
 	shaking = false
 
 ################################################################
-
-var stage = 1
-func Level_up():
+func Level_up(level):
+	stage = level
 	var Level = "Level "
-	stage += 1
 	var text = get_node("/root/CRT/Viewport/Popup/RichTextLabel")
-	text.set_bbcode(str(Level , stage))
-	
-	
+	text.set_bbcode(str(Level , level))
 	
