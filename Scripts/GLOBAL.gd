@@ -1,6 +1,6 @@
 extends Node
 
-var stage = 1
+
 
 func _ready():
 	null
@@ -28,16 +28,18 @@ func Hit_punch():
 	Time.start()
 
 	get_tree().set_pause(true)
-	null
+	
 
 func on_time_timeout():
 	get_tree().set_pause(false)
-	null
+	
 ####################################################################
 	
-func DTransition():
+func Death():
 	get_node("/root/CRT").queue_free()
 	get_tree().change_scene("res://Death_screen/CRT.scn")
+	Scorechanger.score = 0
+	
 	
 ####################################################################
 const full_time = 0.3
@@ -67,9 +69,9 @@ func Screenshake():
 	shaking = false
 
 ################################################################
-func Level_up(level):
-	stage = level
+var stage = 1
+func Level_up():
 	var Level = "Level "
-	var text = get_node("/root/CRT/Viewport/Popup/RichTextLabel")
-	text.set_bbcode(str(Level , level))
+	var text = get_node("/root/CRT/Viewport/Main/Popup/Label")
+	text.set_text(str(Level, stage))
 	

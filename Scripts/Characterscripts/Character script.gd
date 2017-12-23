@@ -44,8 +44,8 @@ func _fixed_process(delta):
 
 	
 	if health <= 0:
-		GLOBAL.DTransition()
-		Scorechanger.score = 0
+		GLOBAL.Death()
+		
 	
 	Health.set_value(health)
 	

@@ -39,5 +39,7 @@ func _on_Area2D_body_enter( body ):
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Bullet"):
+		GLOBAL.Hit_punche()
+		GLOBAL.Screenshake()
 		area.get_parent().get_node("AnimationPlayer").play("Bullexplode")
 		health -= 25

@@ -4,7 +4,6 @@
 [ext_resource path="res://Sprites/Lit.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://white.png" type="Texture" id=3]
 
-
 [node name="Popup" type="PopupPanel"]
 
 focus/ignore_mouse = false
@@ -18,7 +17,7 @@ margin/bottom = 0.0
 popup/exclusive = false
 script/script = ExtResource( 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = false
@@ -29,12 +28,12 @@ margin/left = 165.0
 margin/top = 224.0
 margin/right = 565.0
 margin/bottom = 292.0
-custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 0.222656, 0, 0, 1 )
-bbcode/enabled = true
-bbcode/bbcode = "LEVEL 2"
-visible_characters = -1
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.269531, 0, 0, 1 )
+custom_constants/shadow_as_outline = -2962
 percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Sprite" type="Sprite" parent="."]
 
