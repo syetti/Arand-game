@@ -32,7 +32,6 @@ func _on_Timer_timeout():
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("Bullet"):
-		GLOBAL.Hit_punche()
 		GLOBAL.Screenshake()
 		area.get_parent().get_node("AnimationPlayer").play("Bullexplode")
 		anim.play("Red_Flash")

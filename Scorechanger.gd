@@ -25,4 +25,5 @@ func _set_score(new_value):
 		get_node("/root/CRT/Viewport/Main/Popup").pop()
 		get_tree().get_root().get_node("CRT/AnimationPlayer").play("CRT")
 		GLOBAL.Level_up()
-	
+	if new_value == 6:
+		get_node()

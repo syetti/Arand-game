@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Sprites/GameTexures/End_frame.tex" type="Texture" id=1]
+[ext_resource path="res://Sprites/Lit.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Endtext.gd" type="Script" id=3]
+
+[node name="Control" type="TextureFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 90.0
+margin/top = 323.0
+margin/right = 615.0
+margin/bottom = 442.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 38.0
+margin/top = 27.0
+margin/right = 520.0
+margin/bottom = 164.0
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "Woah woah
+"
+visible_characters = -3
+percent_visible = 1.0
+script/script = ExtResource( 3 )
+
+

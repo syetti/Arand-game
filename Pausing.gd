@@ -16,3 +16,4 @@ func _input(event):
 		else:
 			get_node("../Pause").hide()
 		get_tree().set_pause(paused)
+	
