@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Sound.gd" type="Script" id=1]
 [ext_resource path="res://Music/Enemydeathsound.wav" type="Sample" id=2]
-[ext_resource path="res://Music/Possible.wav" type="Sample" id=3]
-[ext_resource path="res://Music/shooting.wav" type="Sample" id=4]
+[ext_resource path="res://Sound/Introsong.wav" type="Sample" id=3]
+[ext_resource path="res://Sound/MCDeath.wav" type="Sample" id=4]
+[ext_resource path="res://Sound/MChit.wav" type="Sample" id=5]
+[ext_resource path="res://Music/Possible.wav" type="Sample" id=6]
+[ext_resource path="res://Sound/Professer_laugh.wav" type="Sample" id=7]
+[ext_resource path="res://Sound/Type.wav" type="Sample" id=8]
+[ext_resource path="res://Music/shooting.wav" type="Sample" id=9]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -13,17 +18,47 @@ samples/Enemydeathsound = {
 "priority": 0,
 "sample": ExtResource( 2 )
 }
-samples/Possible = {
+samples/Introsong = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 3 )
 }
-samples/shooting = {
+samples/MCDeath = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 4 )
+}
+samples/MChit = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
+samples/Possible = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
+}
+samples/Professer_laugh = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/Shooting = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
+samples/shooting = {
+"db": 0.0,
+"pitch": 3.63,
+"priority": 0,
+"sample": ExtResource( 9 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -34,7 +69,7 @@ script/script = ExtResource( 1 )
 
 config/polyphony = 15
 config/samples = SubResource( 1 )
-default/volume_db = 5.0
+default/volume_db = 3.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0

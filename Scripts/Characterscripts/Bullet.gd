@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 onready var anim = get_node("AnimationPlayer")
-var RUN_SPEED = 62000
+var RUN_SPEED = 72000
 var velocity = Vector2(RUN_SPEED, 0)
 func _ready():
 	set_process(true)

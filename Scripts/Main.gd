@@ -6,17 +6,11 @@ onready var spawn_ = get_node("Spaw_enemy")
 onready var spawn_2 = get_node("Spaw_enemy2")
 onready var spawn_place = spawn_.get_global_pos()
 onready var spawn_place2 =spawn_2.get_global_pos()
-var espawn = false
 signal Enemyenter
 
 
-func _ready():
-	Leveltext.connect("enemy_spawn", self, "spawn_enemy")
-	null
 
-func spawn_enemy():
-	espawn = true
-	
+
 func level_up():
 	var level_popup = Leveltext.instance()
 	add_child(level_popup)

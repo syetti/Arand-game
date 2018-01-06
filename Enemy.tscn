@@ -68,8 +68,8 @@ loop = false
 step = 0.1
 
 [node name="Enemy" type="KinematicBody2D" groups=[
-"Bullet_death",
 "Enemy",
+"Bullet_death",
 ]]
 
 transform/pos = Vector2( 260.194, 80 )

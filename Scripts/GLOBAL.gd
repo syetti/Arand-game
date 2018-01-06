@@ -8,51 +8,34 @@ func _ready():
 
 ##################################################################
 func Hit_punche():
-	var Time = Timer.new()
-	add_child(Time)
-	Time.set_pause_mode(PAUSE_MODE_PROCESS)
-	Time.set_wait_time(0.1)
-	Time.connect("timeout", self, "on_time_timeout")
-	Time.start()
-
-	get_tree().set_pause(true)
-	null
+	OS.delay_msec(2)
 
 
 func Hit_punch():
-	var Time = Timer.new()
-	add_child(Time)
-	Time.set_pause_mode(PAUSE_MODE_PROCESS)
-	Time.set_wait_time(0.2)
-	Time.connect("timeout", self, "on_time_timeout")
-	Time.start()
-
-	get_tree().set_pause(true)
-	
-
-func on_time_timeout():
-	get_tree().set_pause(false)
+	OS.delay_msec(4)
 	
 ####################################################################
 	
 func Death():
 	get_node("/root/CRT").queue_free()
-	get_tree().change_scene("res://Death_screen/CRT.scn")
+	get_tree().get_root().add_child(load("res://Death_screen/CRT.scn").instance())
 	Scorechanger.score = 0
 	
 	
 ####################################################################
 const full_time = 0.3
-
-
+var activated = true
 
 func Screenshake():
+	if activated == false: return
+		
 	var shaking = false
 	var screenshake = 0
 	var time = 0
 	var normal_offset = Vector2(0,0)
 
 	var camera = get_node("/root/CRT/Viewport/Main/Camera2D")
+	
 	if shaking: return
 		shaking = true
 
@@ -72,6 +55,16 @@ func Screenshake():
 var stage = 1
 func Level_up():
 	var Level = "Level "
-	var text = get_node("/root/CRT/Viewport/Main/Popup/Label")
+	var text = get_node("CRT/Viewport/Main/Popup/Label")
 	text.set_text(str(Level, stage))
-	
+	get_tree().get_root().get_node("CRT/Viewport/Main").level_up()
+	get_node("CRT/Viewport/Main/Popup").pop()
+	get_tree().get_root().get_node("CRT/AnimationPlayer").play("CRT")
+################################################################
+func Edeath():
+	activated = false
+	var enemy_rem_scene = preload("res://Enemysmoke.tscn")
+	var enemy_rem = enemy_rem_scene.instance()
+	var Enemy_pos = get_node("/root/CRT/Viewport/Enemy").get_global_pos()
+	add_child(enemy_rem)
+	enemy_rem.set_global_pos(Enemy_pos)

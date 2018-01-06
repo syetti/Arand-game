@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://white.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/GameTexures/Amazingcover-f2.tex" type="Texture" id=2]
+[ext_resource path="res://Sprites/Font/SHPinscher-Regular.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 30
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[node name="Node2d" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Background" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 510.937, 298.452 )
+transform/scale = Vector2( 16.0732, 9.40179 )
+texture = ExtResource( 1 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 512, 300 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Start" type="Button" parent="CanvasLayer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 55.0
+margin/top = 241.0
+margin/right = 304.0
+margin/bottom = 289.0
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "START"
+flat = false
+
+

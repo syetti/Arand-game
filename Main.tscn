@@ -94,8 +94,8 @@ margin/bottom = 52.0
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/behind_parent = true
-transform/pos = Vector2( 511.478, 300.653 )
-transform/scale = Vector2( 4.26884, 5 )
+transform/pos = Vector2( 509.982, 300.653 )
+transform/scale = Vector2( 4.27083, 5 )
 texture = ExtResource( 4 )
 hframes = 7
 

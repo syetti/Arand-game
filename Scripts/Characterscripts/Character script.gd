@@ -21,13 +21,7 @@ func _input(event):
 	var Move_Down = event.is_action_pressed("ui_down")
 	var Move_Up = event.is_action_pressed("ui_up")
 	var stop_moving_y = not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down")
-	var click = event.is_action_pressed("ui_select") and  can_shoot
-	
-	if click:
-		Time.start()
-		fire()
-		
-		Velocity.x = 0
+
 		
 	if Move_Down:
 		Velocity.y = Speed
@@ -42,6 +36,12 @@ func _fixed_process(delta):
 	var motion = Velocity * delta
 	motion = move(motion)
 
+	var click = Input.is_action_pressed("ui_select")and can_shoot
+	
+	if click:
+		Time.start()
+		fire()
+
 	
 	if health <= 0:
 		GLOBAL.Death()
@@ -49,10 +49,7 @@ func _fixed_process(delta):
 	
 	Health.set_value(health)
 	
-	
-	
-	
-	
+
 func _on_Timer_timeout():
 	if not is_colliding():
 		Health.hide()
@@ -61,7 +58,7 @@ func fire():
 	var bullet = bullet_.instance()
 	get_parent().add_child(bullet)
 	bullet.set_global_pos(get_node("Bulletspawn").get_global_pos())
-	Sound.play("shooting")
+	Sound.play("Shooting")
 	can_shoot = false
 
 
